@@ -3,25 +3,26 @@ let allPublications = [];
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-  loadMarkdownContent();
-
-  // Load publications data
-  loadPublications();
-  
   // Initialize animation delays for sections
   const sections = document.querySelectorAll('section');
   sections.forEach((section, index) => {
     section.style.animationDelay = `${index * 0.1}s`;
   });
-  
-  initializeVerticalNav();
+
+  Promise.all([
+    loadMarkdownContent(),
+    loadPublications()
+  ]).finally(() => {
+    initializeVerticalNav();
+    scrollToInitialHash();
+  });
 });
 
 function loadMarkdownContent() {
   const targets = Array.from(document.querySelectorAll('[data-markdown]'));
 
-  targets.forEach(target => {
-    fetch(`${target.dataset.markdown}?v=20260604b`)
+  return Promise.all(targets.map(target => {
+    return fetch(`${target.dataset.markdown}?v=20260604b`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Could not load ${target.dataset.markdown}: ${response.status}`);
@@ -41,7 +42,7 @@ function loadMarkdownContent() {
         console.error(error);
         target.textContent = `Error loading ${target.dataset.markdown}.`;
       });
-  });
+  }));
 }
 
 function renderMarkdown(markdown) {
@@ -80,7 +81,7 @@ function renderInlineMarkdown(text) {
 
 // Load publications from JSON file
 function loadPublications() {
-  fetch('content/publications.json?v=20260604c')
+  return fetch('content/publications.json?v=20260604c')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -126,7 +127,7 @@ function initializeVerticalNav() {
     .map(link => document.getElementById(link.dataset.section))
     .filter(Boolean);
 
-  if (!navLinks.length || !sections.length || !('IntersectionObserver' in window)) {
+  if (!navLinks.length || !sections.length) {
     return;
   }
 
@@ -137,21 +138,69 @@ function initializeVerticalNav() {
   };
 
   setActive(sections[0].id);
+  let lockedSectionId = null;
+  let unlockTimer = null;
 
-  const observer = new IntersectionObserver(entries => {
-    const visibleEntries = entries
-      .filter(entry => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+  navLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      const target = document.getElementById(link.dataset.target || link.dataset.section);
+      if (!target) {
+        return;
+      }
 
-    if (visibleEntries[0]) {
-      setActive(visibleEntries[0].target.id);
-    }
-  }, {
-    rootMargin: '-20% 0px -55% 0px',
-    threshold: [0.1, 0.25, 0.5, 0.75]
+      event.preventDefault();
+      lockedSectionId = link.dataset.section;
+      clearTimeout(unlockTimer);
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActive(lockedSectionId);
+      history.replaceState(null, '', `#${target.id}`);
+
+      unlockTimer = setTimeout(() => {
+        lockedSectionId = null;
+        updateActiveFromScroll();
+      }, 800);
+    });
   });
 
-  sections.forEach(section => observer.observe(section));
+  const updateActiveFromScroll = () => {
+    if (lockedSectionId) {
+      setActive(lockedSectionId);
+      const target = document.getElementById(lockedSectionId);
+      if (target && Math.abs(target.getBoundingClientRect().top) < 8) {
+        lockedSectionId = null;
+      } else {
+        return;
+      }
+    }
+
+    const anchorLine = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
+    let current = sections[0];
+
+    sections.forEach(section => {
+      if (section.offsetTop <= anchorLine) {
+        current = section;
+      }
+    });
+
+    setActive(current.id);
+  };
+
+  updateActiveFromScroll();
+  window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+  window.addEventListener('resize', updateActiveFromScroll);
+}
+
+function scrollToInitialHash() {
+  if (!window.location.hash) {
+    return;
+  }
+
+  const target = document.getElementById(window.location.hash.slice(1));
+  if (target) {
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ block: 'start' });
+    });
+  }
 }
 
 // Create HTML element for a publication
