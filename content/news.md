@@ -1,0 +1,6 @@
+- 🚩 May. 2026 Our paper **CCD** has been accepted to **SIGKDD 2026**.
+- 🚩 May. 2026 I have received the **ICML 2026 Gold Reviewer Award**.
+- 🚩 May. 2026 Our survey paper **A Comprehensive Survey of Deep Learning for Multivariate Time Series Forecasting: A Channel Strategy Perspective** has been accepted by **IJCAI 2026**.
+- 🚩 May. 2026 Our papers **KITE** and **SEER** have been accepted to **ICML 2026**.
+- 🚩 Jan. 2026 Our papers **CoRA** and **ASTGI** have been accepted to **ICLR 2026**.
+- 🚩 Sep. 2025 Our papers **SRSNet** and **DBLoss** have been accepted to **NeurIPS 2025**, with one **Spotlight** and one **Poster**.

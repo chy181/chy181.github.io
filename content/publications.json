@@ -1,0 +1,332 @@
+{
+  "publications": [
+    {
+      "title": "CCD: Capturing Cross-Correlations with Deformable Convolutional Networks for Multivariate Time Series Forecasting",
+      "authors": [
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Xiangfei Qiu",
+        "Yang Shu",
+        "Bin Yang",
+        "Chenjuan Guo"
+      ],
+      "venue": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2026",
+      "thumbnail": "images/thumbs/ccd.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": ""
+      },
+           "icon": {
+        "src": "images/logo/ccd.png",
+        "width": "1.55rem",
+        "height": "1.55rem"
+      },
+      "badge": "KDD 2026"
+    },
+    {
+      "title": "KITE: Knowledge-Guided Probabilistic Modeling for Time Series Forecasting with Exogenous Variables",
+      "authors": [
+        "Hanyin Cheng",
+        "Jingrong Zhou",
+        "Yang Shu",
+        "Chenjuan Guo"
+      ],
+      "venue": "International Conference on Machine Learning, 2026",
+      "thumbnail": "images/thumbs/kite.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": ""
+      },
+      "badge": "ICML 2026",
+      "icon": {
+        "src": "images/logo/kite.png",
+        "width": "1.65rem",
+        "height": "1.65rem"
+      }
+    },
+    {
+      "title": "SEER: Transformer-based Robust Time Series Forecasting via Automated Patch Enhancement and Replacement",
+      "authors": [
+        "Xiangfei Qiu",
+        "Xvyuan Liu",
+        "Tianen Shen",
+        "Xingjian Wu",
+        "Hanyin Cheng",
+        "Bin Yang",
+        "Jilin Hu"
+      ],
+      "venue": "International Conference on Machine Learning, 2026",
+      "thumbnail": "images/thumbs/seer.jpg",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC"
+      },
+      "badge": "ICML 2026"
+    },
+    {
+      "title": "A comprehensive survey of deep learning for multivariate time series forecasting: A channel strategy perspective",
+      "authors": [
+        "Xiangfei Qiu",
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Junkai Lu",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Christian S. Jensen",
+        "Bin Yang"
+      ],
+      "venue": "International Joint Conference on Artificial Intelligence, 2026",
+      "thumbnail": "images/thumbs/c4ts.jpg",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C"
+      },
+      "badge": "IJCAI 2026"
+    },
+    {
+      "title": "CoRA: Boosting Time Series Foundation Models for Multivariate Forecasting through Correlation-aware Adapter",
+      "authors": [
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Yang Shu",
+        "Zhongwen Rao",
+        "Lujia Pan",
+        "Bin Yang",
+        "Chenjuan Guo"
+      ],
+      "venue": "International Conference on Learning Representations, 2026",
+      "thumbnail": "images/thumbs/cora.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:3fE2CSJIrl8C",
+        "pdf": "https://arxiv.org/pdf/2603.21828"
+      },
+      "badge": "ICLR 2026"
+    },
+    {
+      "title": "ASTGI: Adaptive spatio-temporal graph interactions for irregular multivariate time series forecasting",
+      "authors": [
+        "Xvyuan Liu",
+        "Xiangfei Qiu",
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Chenjuan Guo",
+        "Bin Yang",
+        "Jilin Hu"
+      ],
+      "venue": "International Conference on Learning Representations, 2026",
+      "thumbnail": "images/thumbs/astgi.jpg",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:W7OEmFMy1HYC"
+      },
+      "badge": "ICLR 2026"
+    },
+    {
+      "title": "Enhancing time series forecasting through selective representation spaces: A patch perspective",
+      "authors": [
+        "Xingjian Wu",
+        "Xiangfei Qiu",
+        "Hanyin Cheng",
+        "Zhe Li",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Bin Yang"
+      ],
+      "venue": "Advances in Neural Information Processing Systems 38, 2026",
+      "thumbnail": "images/thumbs/srs.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:WF5omc3nYNoC",
+        "pdf": "https://arxiv.org/pdf/2510.14510"
+      },
+      "badge": "NeurIPS 2025 Spotlight"
+    },
+    {
+      "title": "DBLoss: Decomposition-based loss function for time series forecasting",
+      "authors": [
+        "Xiangfei Qiu",
+        "Xingjian Wu",
+        "Hanyin Cheng",
+        "Xvyuan Liu",
+        "Chenjuan Guo",
+        "Jilin Hu",
+        "Bin Yang"
+      ],
+      "venue": "Advances in Neural Information Processing Systems 38, 2026",
+      "thumbnail": "images/thumbs/dbloss.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:5nxA0vEk-isC",
+        "pdf": "https://arxiv.org/pdf/2510.23672"
+      },
+      "badge": "NeurIPS 2025"
+    },
+    {
+      "title": "TSFM-Bench: A comprehensive and unified benchmark of foundation models for time series forecasting",
+      "authors": [
+        "Zhe Li",
+        "Xiangfei Qiu",
+        "Peng Chen",
+        "Yihang Wang",
+        "Hanyin Cheng",
+        "Yang Shu",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Aoying Zhou",
+        "Christian S. Jensen",
+        "Bin Yang"
+      ],
+      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025",
+      "thumbnail": "images/thumbs/tsfm-bench.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:IjCSPb-OGe4C",
+        "pdf": "https://arxiv.org/pdf/2410.11802"
+      },
+      "badge": "KDD 2025"
+    },
+    {
+      "title": "MM-Path: Multi-modal, multi-granularity path representation learning",
+      "authors": [
+        "Ronghui Xu",
+        "Hanyin Cheng",
+        "Chenjuan Guo",
+        "Hongfan Gao",
+        "Jilin Hu",
+        "Sean Bin Yang",
+        "Bin Yang"
+      ],
+      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025",
+      "thumbnail": "images/thumbs/mm-path.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:u5HHmVD_uO8C",
+        "pdf": "https://arxiv.org/pdf/2411.18428"
+      },
+      "badge": "KDD 2025"
+    },
+    {
+      "title": "RCRank: Multimodal Ranking of Root Causes of Slow Queries in Cloud Database Systems",
+      "authors": [
+        "Biao Ouyang",
+        "Yingying Zhang",
+        "Hanyin Cheng",
+        "Yang Shu",
+        "Chenjuan Guo",
+        "Bin Yang",
+        "Qingsong Wen",
+        "Lunting Fan",
+        "Christian S. Jensen"
+      ],
+      "venue": "International Conference on Very Large Databases, 2025",
+      "thumbnail": "images/thumbs/rcrank.jpg",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:0EnyYjriUFMC"
+      },
+      "badge": "PVLDB 2026"
+    },
+    {
+      "title": "STAR: Boosting Time Series Foundation Models for Anomaly Detection through State-aware Adapter",
+      "authors": [
+        "Hanyin Cheng",
+        "Ruitong Zhang",
+        "Yuning Lu",
+        "Peng Chen",
+        "Meng Wang",
+        "Yang Shu",
+        "Bin Yang",
+        "Chenjuan Guo"
+      ],
+      "venue": "arXiv preprint arXiv:2510.16014, 2025",
+      "thumbnail": "images/thumbs/star.jpg",
+      "selected": 0,
+      "award": "",
+       "icon": {
+        "src": "images/logo/star.png",
+        "width": "1.55rem",
+        "height": "1.55rem"
+      },
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:_FxGoFyzp5QC"
+      }
+    },
+    {
+      "title": "Unlocking the power of mixture-of-experts for task-aware time series analytics",
+      "authors": [
+        "Xingjian Wu",
+        "Zhengyu Li",
+        "Hanyin Cheng",
+        "Xiangfei Qiu",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Bin Yang"
+      ],
+      "venue": "arXiv preprint arXiv:2509.22279, 2025",
+      "thumbnail": "images/thumbs/patchmoe.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:YsMSGLbcyi4C"
+      }
+    },
+    {
+      "title": "FLAME: Flow Enhanced Legendre Memory Models for General Time Series Forecasting",
+      "authors": [
+        "Xingjian Wu",
+        "Hanyin Cheng",
+        "Xiangfei Qiu",
+        "Zhe Li",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Bin Yang"
+      ],
+      "venue": "arXiv preprint arXiv:2512.14253, 2025",
+      "thumbnail": "images/thumbs/flame.jpg",
+      "selected": 0,
+      "award": "",
+      "icon": {
+        "src": "images/logo/flame.png",
+        "width": "1.55rem",
+        "height": "1.55rem"
+      },
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:roLk4NBRz8UC"
+      }
+    },
+    {
+      "title": "Multi-Scale Spatial-Temporal Hypergraph Network with Lead-Lag Structures for Stock Time Series Forecasting",
+      "authors": [
+        "Xiangfei Qiu",
+        "Liu Yang",
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Rongjia Wu",
+        "Zhigang Zhang",
+        "Ding Tu",
+        "Chenjuan Guo",
+        "Bin Yang",
+        "Jilin Hu"
+      ],
+      "venue": "arXiv preprint arXiv:2509.23668, 2025",
+      "thumbnail": "images/thumbs/hermes.jpg",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:eQOLeE2rZwMC"
+      }
+    }
+  ]
+}

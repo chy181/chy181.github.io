@@ -1,9 +1,10 @@
 // Global variables
 let allPublications = [];
-let showingSelected = true;
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+  loadMarkdownContent();
+
   // Load publications data
   loadPublications();
   
@@ -13,16 +14,73 @@ document.addEventListener('DOMContentLoaded', function() {
     section.style.animationDelay = `${index * 0.1}s`;
   });
   
-  // Add event listener for toggle button
-  const toggleButton = document.getElementById('toggle-publications');
-  if (toggleButton) {
-    toggleButton.addEventListener('click', togglePublications);
-  }
+  initializeVerticalNav();
 });
+
+function loadMarkdownContent() {
+  const targets = Array.from(document.querySelectorAll('[data-markdown]'));
+
+  targets.forEach(target => {
+    fetch(`${target.dataset.markdown}?v=20260604b`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Could not load ${target.dataset.markdown}: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(markdown => {
+        target.innerHTML = renderMarkdown(markdown);
+        if (target.id === 'news-content') {
+          const list = target.querySelector('ul');
+          if (list) {
+            list.classList.add('news-list');
+          }
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        target.textContent = `Error loading ${target.dataset.markdown}.`;
+      });
+  });
+}
+
+function renderMarkdown(markdown) {
+  const blocks = markdown.replace(/\r\n/g, '\n').trim().split(/\n\s*\n/);
+
+  return blocks.map(block => {
+    const lines = block.split('\n');
+
+    if (lines.every(line => line.trim().startsWith('- '))) {
+      const items = lines.map(line => `<li>${renderInlineMarkdown(line.trim().slice(2))}</li>`).join('');
+      return `<ul>${items}</ul>`;
+    }
+
+    if (lines[0].startsWith('## ')) {
+      return `<h2>${renderInlineMarkdown(lines[0].slice(3).trim())}</h2>`;
+    }
+
+    if (block.trim().startsWith('<')) {
+      return block;
+    }
+
+    return `<p>${renderInlineMarkdown(lines.join(' ').trim())}</p>`;
+  }).join('\n');
+}
+
+function renderInlineMarkdown(text) {
+  const escaped = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  return escaped
+    .replace(/\[([^\]]+)\]\(([^)]*)\)/g, (_, label, href) => `<a href="${href}">${label.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')}</a>`)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
 
 // Load publications from JSON file
 function loadPublications() {
-  fetch('publications.json')
+  fetch('content/publications.json?v=20260604c')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -32,7 +90,7 @@ function loadPublications() {
     .then(data => {
       console.log("Publications loaded successfully:", data);
       allPublications = data.publications;
-      renderPublications(true);
+      renderPublications(false);
     })
     .catch(error => {
       console.error('Error loading publications:', error);
@@ -45,18 +103,6 @@ function loadPublications() {
 function displayFallbackPublications() {
   const container = document.getElementById('publications-container');
   container.innerHTML = `Error loading publications.`;
-}
-
-// Toggle between showing all or selected publications
-function togglePublications() {
-  showingSelected = !showingSelected;
-  renderPublications(showingSelected);
-  
-  // Update button text
-  const toggleButton = document.getElementById('toggle-publications');
-  toggleButton.textContent = showingSelected ? 'Show All' : 'Show Selected';
-  const toggleHeader = document.getElementById('toggle-header');
-  toggleHeader.textContent = showingSelected ? 'Selected Publications' : 'All Publications';
 }
 
 // Render publications based on selection state
@@ -74,6 +120,40 @@ function renderPublications(selectedOnly) {
   });
 }
 
+function initializeVerticalNav() {
+  const navLinks = Array.from(document.querySelectorAll('.vertical-nav a[data-section]'));
+  const sections = navLinks
+    .map(link => document.getElementById(link.dataset.section))
+    .filter(Boolean);
+
+  if (!navLinks.length || !sections.length || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const setActive = sectionId => {
+    navLinks.forEach(link => {
+      link.classList.toggle('is-active', link.dataset.section === sectionId);
+    });
+  };
+
+  setActive(sections[0].id);
+
+  const observer = new IntersectionObserver(entries => {
+    const visibleEntries = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+    if (visibleEntries[0]) {
+      setActive(visibleEntries[0].target.id);
+    }
+  }, {
+    rootMargin: '-20% 0px -55% 0px',
+    threshold: [0.1, 0.25, 0.5, 0.75]
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
 // Create HTML element for a publication
 function createPublicationElement(publication) {
   const pubItem = document.createElement('div');
@@ -88,6 +168,13 @@ function createPublicationElement(publication) {
   thumbnailImg.src = publication.thumbnail;
   thumbnailImg.alt = `${publication.title} thumbnail`;
   thumbnail.appendChild(thumbnailImg);
+
+  if (publication.badge) {
+    const badge = document.createElement('div');
+    badge.className = 'pub-badge';
+    badge.textContent = publication.badge;
+    thumbnail.appendChild(badge);
+  }
   
   // Create content container
   const content = document.createElement('div');
@@ -96,7 +183,25 @@ function createPublicationElement(publication) {
   // Add title
   const title = document.createElement('div');
   title.className = 'pub-title';
-  title.textContent = publication.title;
+
+  if (publication.icon) {
+    const iconConfig = typeof publication.icon === 'string' ? { src: publication.icon } : publication.icon;
+    const icon = document.createElement('img');
+    icon.className = 'pub-title-icon';
+    icon.src = iconConfig.src;
+    icon.alt = '';
+    if (iconConfig.width) {
+      icon.style.width = iconConfig.width;
+    }
+    if (iconConfig.height) {
+      icon.style.height = iconConfig.height;
+    }
+    title.appendChild(icon);
+  }
+
+  const titleText = document.createElement('span');
+  titleText.textContent = publication.title;
+  title.appendChild(titleText);
   content.appendChild(title);
   
   // Add authors with highlight
@@ -106,7 +211,7 @@ function createPublicationElement(publication) {
   // Format authors with highlighting
   let authorsHTML = '';
   publication.authors.forEach((author, index) => {
-    if (author.includes('Author 3')) { // TODO: Highlight specific author
+    if (author.includes('Hanyin Cheng') || author.includes('HanYin Cheng') || author.includes('H Cheng')) {
       authorsHTML += `<span class="highlight-name">${author}</span>`;
     } else {
       authorsHTML += author;
@@ -163,6 +268,13 @@ function createPublicationElement(publication) {
       projectLink.href = publication.links.project;
       projectLink.textContent = '[Project Page]';
       links.appendChild(projectLink);
+    }
+
+    if (publication.links.scholar) {
+      const scholarLink = document.createElement('a');
+      scholarLink.href = publication.links.scholar;
+      scholarLink.textContent = '[Scholar]';
+      links.appendChild(scholarLink);
     }
     
     content.appendChild(links);
