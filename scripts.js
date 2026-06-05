@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     section.style.animationDelay = `${index * 0.1}s`;
   });
 
+  initializePreferenceControls();
+
   Promise.all([
     loadMarkdownContent(),
     loadPublications()
@@ -18,20 +20,144 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+const i18nText = {
+  en: {
+    about: 'About',
+    news: 'News',
+    publications: 'Publications',
+    services: 'Services',
+    newsHeading: 'News',
+    publicationsHeading: 'Publications & Preprints',
+    servicesHeading: 'Academic Services',
+    footerUpdated: 'Last updated: June 2026.',
+    profileName: 'HanYin Cheng',
+    profileRole: 'PhD Student • East China Normal University',
+    scholarLabel: 'Google Scholar',
+    dblpLabel: 'DBLP',
+    emailLabel: 'Email',
+    githubLabel: 'GitHub',
+    orcidLabel: 'ORCID',
+    viewing: 'Viewing',
+    emailCopied: 'Email copied',
+    copyFailed: 'Copy failed',
+    switchedToEnglish: 'Switched to English',
+    switchedToChinese: 'Switched to Chinese',
+    themeToast: {
+      system: 'Switched to system theme',
+      light: 'Switched to light theme',
+      dark: 'Switched to dark theme'
+    }
+  },
+  zh: {
+    about: '个人简介',
+    news: '最新动态',
+    publications: '发表论文',
+    services: '学术服务',
+    newsHeading: '动态',
+    publicationsHeading: '论文与预印本',
+    servicesHeading: '学术服务',
+    footerUpdated: '最后更新：2026 年 6 月。',
+    profileName: '成涵吟',
+    profileRole: '博士生 • 华东师范大学',
+    scholarLabel: '谷歌学术',
+    dblpLabel: 'DBLP',
+    emailLabel: '邮箱',
+    githubLabel: 'GitHub',
+    orcidLabel: 'ORCID',
+    viewing: '正在查看',
+    emailCopied: '邮箱已复制',
+    copyFailed: '复制失败',
+    switchedToEnglish: 'Switched to English',
+    switchedToChinese: '切换至 中文',
+    themeToast: {
+      system: '切换至 系统主题',
+      light: '切换至 浅色主题',
+      dark: '切换至 深色主题'
+    }
+  }
+};
+
+const themeModes = ['system', 'light', 'dark'];
+const themeStorageKey = 'themePreference';
+
+function initializePreferenceControls() {
+  const savedLanguage = localStorage.getItem('languageMode') || 'en';
+  const savedTheme = localStorage.getItem(themeStorageKey) || 'system';
+  const languageToggle = document.querySelector('[data-language-toggle]');
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+  applyLanguage(savedLanguage);
+  applyTheme(savedTheme);
+
+  languageToggle?.addEventListener('click', () => {
+    const nextLanguage = getCurrentLanguage() === 'en' ? 'zh' : 'en';
+    localStorage.setItem('languageMode', nextLanguage);
+    applyLanguage(nextLanguage);
+    loadMarkdownContent();
+    showToast(nextLanguage === 'zh' ? i18nText.zh.switchedToChinese : i18nText.en.switchedToEnglish);
+  });
+
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = localStorage.getItem(themeStorageKey) || 'system';
+    const nextTheme = themeModes[(themeModes.indexOf(currentTheme) + 1) % themeModes.length];
+    localStorage.setItem(themeStorageKey, nextTheme);
+    applyTheme(nextTheme);
+    showToast(i18nText[getCurrentLanguage()].themeToast[nextTheme]);
+  });
+
+  systemTheme.addEventListener('change', () => {
+    if ((localStorage.getItem(themeStorageKey) || 'system') === 'system') {
+      applyTheme('system');
+    }
+  });
+}
+
+function getCurrentLanguage() {
+  return document.documentElement.lang === 'zh-CN' ? 'zh' : 'en';
+}
+
+function applyLanguage(language) {
+  const dictionary = i18nText[language] || i18nText.en;
+  document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+
+  document.querySelectorAll('.vertical-nav a[data-section]').forEach(link => {
+    const label = link.querySelector('.nav-label');
+    if (label && dictionary[link.dataset.section]) {
+      label.textContent = dictionary[link.dataset.section];
+    }
+  });
+
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.dataset.i18n;
+    if (dictionary[key]) {
+      element.textContent = dictionary[key];
+    }
+  });
+
+}
+
+function applyTheme(themeMode) {
+  const resolvedTheme = themeMode === 'system'
+    ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    : themeMode;
+  document.documentElement.dataset.theme = resolvedTheme;
+}
+
 function copyEmailToClipboard(email) {
   if (copyTextWithSelection(email)) {
-    showToast('Email copied');
+    showToast(i18nText[getCurrentLanguage()].emailCopied);
     return;
   }
 
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(email)
-      .then(() => showToast('Email copied'))
-      .catch(() => showToast('Copy failed'));
+      .then(() => showToast(i18nText[getCurrentLanguage()].emailCopied))
+      .catch(() => showToast(i18nText[getCurrentLanguage()].copyFailed));
     return;
   }
 
-  showToast('Copy failed');
+  showToast(i18nText[getCurrentLanguage()].copyFailed);
 }
 
 function copyTextWithSelection(text) {
@@ -76,10 +202,11 @@ function loadMarkdownContent() {
   const targets = Array.from(document.querySelectorAll('[data-markdown]'));
 
   return Promise.all(targets.map(target => {
-    return fetch(`${target.dataset.markdown}?v=20260604b`)
+    const markdownPath = getLocalizedMarkdownPath(target.dataset.markdown);
+    return fetch(`${markdownPath}?v=20260605a`)
       .then(response => {
         if (!response.ok) {
-          throw new Error(`Could not load ${target.dataset.markdown}: ${response.status}`);
+          throw new Error(`Could not load ${markdownPath}: ${response.status}`);
         }
         return response.text();
       })
@@ -94,9 +221,17 @@ function loadMarkdownContent() {
       })
       .catch(error => {
         console.error(error);
-        target.textContent = `Error loading ${target.dataset.markdown}.`;
+        target.textContent = `Error loading ${markdownPath}.`;
       });
   }));
+}
+
+function getLocalizedMarkdownPath(markdownPath) {
+  if (getCurrentLanguage() === 'zh') {
+    return markdownPath.replace(/\.md$/, '.zh.md');
+  }
+
+  return markdownPath;
 }
 
 function renderMarkdown(markdown) {
@@ -208,7 +343,7 @@ function initializeVerticalNav() {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
       if (window.matchMedia('(min-width: 769px)').matches) {
-        showToast(`Viewing ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
+        showToast(`${i18nText[getCurrentLanguage()].viewing} ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
       }
       history.replaceState(null, '', link.getAttribute('href'));
       waitForScrollToSettle(target);

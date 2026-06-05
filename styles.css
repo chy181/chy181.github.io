@@ -10,6 +10,17 @@
   --transition-time: 0.2s;
 }
 
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #e5e7eb;
+  --text-secondary: #cbd5e1;
+  --accent-color: #8bb7ff;
+  --accent-hover: #b7d2ff;
+  --border-color: #334155;
+  --soft-bg: #1f2937;
+  --shadow-color: rgba(0, 0, 0, 0.28);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,6 +34,12 @@ body {
   font-family: "Merriweather", Georgia, "Times New Roman", serif;
   font-weight: 300;
   line-height: 1.6;
+  color-scheme: light;
+}
+
+[data-theme="dark"] body,
+body[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 .vertical-nav,
@@ -55,6 +72,7 @@ body {
 }
 
 .vertical-nav a,
+.vertical-nav button,
 .external-nav a,
 .external-nav button {
   display: flex;
@@ -77,12 +95,15 @@ body {
   transition: color var(--transition-time) ease, background var(--transition-time) ease, border-color var(--transition-time) ease, box-shadow var(--transition-time) ease, transform var(--transition-time) ease;
 }
 
+.vertical-nav button,
 .external-nav button {
   appearance: none;
 }
 
 .vertical-nav a:hover,
 .vertical-nav a.is-active,
+.vertical-nav button:hover,
+.vertical-nav button:focus-visible,
 .external-nav a:hover,
 .external-nav button:hover,
 .external-nav button:focus-visible {
@@ -92,7 +113,9 @@ body {
   box-shadow: 0 8px 20px rgba(34, 75, 141, 0.2);
 }
 
-.vertical-nav a:hover {
+.vertical-nav a:hover,
+.vertical-nav button:hover,
+.vertical-nav button:focus-visible {
   transform: translateX(3px);
 }
 
@@ -106,6 +129,26 @@ body {
   background: #0f2f63;
   border-color: #0f2f63;
   box-shadow: 0 6px 16px rgba(15, 47, 99, 0.22);
+}
+
+[data-theme="dark"] .vertical-nav a,
+[data-theme="dark"] .vertical-nav button,
+[data-theme="dark"] .external-nav a,
+[data-theme="dark"] .external-nav button {
+  background: rgba(17, 24, 39, 0.9);
+  border-color: rgba(139, 183, 255, 0.22);
+}
+
+[data-theme="dark"] .vertical-nav a:hover,
+[data-theme="dark"] .vertical-nav a.is-active,
+[data-theme="dark"] .vertical-nav button:hover,
+[data-theme="dark"] .vertical-nav button:focus-visible,
+[data-theme="dark"] .external-nav a:hover,
+[data-theme="dark"] .external-nav button:hover,
+[data-theme="dark"] .external-nav button:focus-visible {
+  color: #0f172a;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .side-icon,
@@ -528,6 +571,10 @@ footer {
 
   .vertical-nav .side-icon {
     width: auto;
+  }
+
+  .vertical-nav .side-control {
+    display: none;
   }
 
   .nav-label {

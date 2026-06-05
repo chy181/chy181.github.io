@@ -12,6 +12,15 @@
     <meta property="og:url" content="#">
     <meta name="twitter:card" content="summary">
     <title>HanYin Cheng</title>
+    <script>
+        (() => {
+            const themeMode = localStorage.getItem('themePreference') || 'system';
+            const resolvedTheme = themeMode === 'system'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : themeMode;
+            document.documentElement.dataset.theme = resolvedTheme;
+        })();
+    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=20260605a">
@@ -23,26 +32,29 @@
             <li><a href="#news" data-section="news"><i class="fas fa-newspaper side-icon"></i><span class="nav-label">News</span></a></li>
             <li><a href="#publications" data-section="publications"><i class="fas fa-book-open side-icon"></i><span class="nav-label">Publications</span></a></li>
             <li><a href="#services" data-section="services"><i class="fas fa-hands-helping side-icon"></i><span class="nav-label">Services</span></a></li>
+            <li><button type="button" class="side-control" data-language-toggle><i class="fas fa-language side-icon"></i><span class="nav-label">English/中文</span></button></li>
+            <li><button type="button" class="side-control" data-theme-toggle><i class="fas fa-adjust side-icon"></i><span class="nav-label">浅色/深色/系统</span></button></li>
         </ul>
     </nav>
 
     <nav class="external-nav" aria-label="External profiles">
         <ul>
-            <li><a href="https://scholar.google.com/citations?user=K146YJMAAAAJ"><i class="fas fa-graduation-cap"></i><span>Google Scholar</span></a></li>
-            <li><a href="https://dblp.org/pid/390/7363.html"><i class="fas fa-database"></i><span>DBLP</span></a></li>
-            <li><button type="button" class="copy-email-button" onclick="copyEmailToClipboard('hycheng@stu.ecnu.edu.cn')"><i class="fas fa-envelope"></i><span>Email</span></button></li>
-            <li><a href="https://github.com/chy181"><i class="fab fa-github"></i><span>GitHub</span></a></li>
+            <li><a href="https://scholar.google.com/citations?user=K146YJMAAAAJ"><i class="fas fa-graduation-cap"></i><span data-i18n="scholarLabel">Google Scholar</span></a></li>
+            <li><a href="https://dblp.org/pid/390/7363.html"><i class="fas fa-database"></i><span data-i18n="dblpLabel">DBLP</span></a></li>
+            <li><button type="button" class="copy-email-button" onclick="copyEmailToClipboard('hycheng@stu.ecnu.edu.cn')"><i class="fas fa-envelope"></i><span data-i18n="emailLabel">Email</span></button></li>
+            <li><a href="https://github.com/chy181"><i class="fab fa-github"></i><span data-i18n="githubLabel">GitHub</span></a></li>
+            <li><a href="https://orcid.org/0009-0005-6755-5777"><i class="fas fa-id-badge"></i><span data-i18n="orcidLabel">ORCID</span></a></li>
         </ul>
     </nav>
 
     <header>
         <div class="header-content">
-            <h1>HanYin Cheng</h1>
-            <p>PhD Student • East China Normal University</p>
+            <h1 data-i18n="profileName">HanYin Cheng</h1>
+            <p data-i18n="profileRole">PhD Student • East China Normal University</p>
             <div class="social-links-header">
-                <a href="https://scholar.google.com/citations?user=K146YJMAAAAJ"><i class="fas fa-graduation-cap"></i>Google Scholar</a>
-                <a href="https://dblp.org/pid/390/7363.html"><i class="fas fa-database"></i>DBLP</a>
-                <a href="https://orcid.org/0009-0005-6755-5777"><i class="fas fa-id-badge"></i>ORCID</a>
+                <a href="https://scholar.google.com/citations?user=K146YJMAAAAJ"><i class="fas fa-graduation-cap"></i><span data-i18n="scholarLabel">Google Scholar</span></a>
+                <a href="https://dblp.org/pid/390/7363.html"><i class="fas fa-database"></i><span data-i18n="dblpLabel">DBLP</span></a>
+                <a href="https://orcid.org/0009-0005-6755-5777"><i class="fas fa-id-badge"></i><span data-i18n="orcidLabel">ORCID</span></a>
                 <button type="button" class="inline-copy-email" onclick="copyEmailToClipboard('hycheng@stu.ecnu.edu.cn')"><i class="fas fa-envelope"></i>hycheng@stu.ecnu.edu.cn</button>
             </div>
         </div>
@@ -57,7 +69,7 @@
         </section>
 
         <section id="news">
-            <h2>News</h2>
+            <h2 data-i18n="newsHeading">News</h2>
             <div class="news-container">
                 <div id="news-content" data-markdown="content/news.md">Loading news...</div>
             </div>
@@ -65,7 +77,7 @@
 
         <section id="publications">
             <div class="publications-header">
-                <h2 id="toggle-header">Publications &amp; Preprints</h2>
+                <h2 id="toggle-header" data-i18n="publicationsHeading">Publications &amp; Preprints</h2>
             </div>
             <div id="publications-container">
                 <!-- Publications will be dynamically loaded here -->
@@ -73,19 +85,19 @@
         </section>
 
         <section id="services">
-            <h2>Academic Services</h2>
+            <h2 data-i18n="servicesHeading">Academic Services</h2>
             <div id="services-content" data-markdown="content/services.md">Loading services...</div>
         </section>
     </main>
 
     <footer>
-        <p>Last updated: June 2026.</p>
+        <p data-i18n="footerUpdated">Last updated: June 2026.</p>
     </footer>
 
     <div id="imageModal" class="modal">
         <span class="modal-close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
-    <script src="scripts.js?v=20260605f"></script>
+    <script src="scripts.js?v=20260605i"></script>
 </body>
 </html>

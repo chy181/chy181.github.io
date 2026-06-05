@@ -10,7 +10,7 @@
         "Bin Yang",
         "Chenjuan Guo"
       ],
-      "venue": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2026",
+      "venue": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/ccd.jpg",
       "selected": 1,
       "award": "",
@@ -32,7 +32,7 @@
         "Yang Shu",
         "Chenjuan Guo"
       ],
-      "venue": "International Conference on Machine Learning, 2026",
+      "venue": "International Conference on Machine Learning, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/kite.png",
       "selected": 0,
       "award": "",
@@ -56,7 +56,7 @@
         "Bin Yang",
         "Chenjuan Guo"
       ],
-      "venue": "International Conference on Learning Representations, 2026",
+      "venue": "International Conference on Learning Representations, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/cora.jpg",
       "selected": 1,
       "award": "",
@@ -78,7 +78,7 @@
         "Christian S. Jensen",
         "Bin Yang"
       ],
-      "venue": "International Joint Conference on Artificial Intelligence, 2026",
+      "venue": "International Joint Conference on Artificial Intelligence, 2026 (CCF-B)",
       "thumbnail": "images/thumbs/survey-channel.png",
       "selected": 0,
       "award": "",
@@ -123,7 +123,7 @@
         "Bin Yang",
         "Jilin Hu"
       ],
-      "venue": "International Conference on Machine Learning, 2026",
+      "venue": "International Conference on Machine Learning, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/seer.jpg",
       "selected": 0,
       "award": "",
@@ -149,7 +149,7 @@
         "Bin Yang",
         "Jilin Hu"
       ],
-      "venue": "International Conference on Learning Representations, 2026",
+      "venue": "International Conference on Learning Representations, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/astgi.jpg",
       "selected": 0,
       "award": "",
@@ -169,7 +169,7 @@
         "Chenjuan Guo",
         "Bin Yang"
       ],
-      "venue": "Advances in Neural Information Processing Systems 38, 2026",
+      "venue": "Advances in Neural Information Processing Systems 38, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/srs.jpg",
       "selected": 1,
       "award": "",
@@ -190,7 +190,7 @@
         "Jilin Hu",
         "Bin Yang"
       ],
-      "venue": "Advances in Neural Information Processing Systems 38, 2026",
+      "venue": "Advances in Neural Information Processing Systems 38, 2026 (CCF-A)",
       "thumbnail": "images/thumbs/dbloss.jpg",
       "selected": 1,
       "award": "",
@@ -215,7 +215,7 @@
         "Christian S. Jensen",
         "Bin Yang"
       ],
-      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025",
+      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025 (CCF-A)",
       "thumbnail": "images/thumbs/tsfm.jpg",
       "selected": 1,
       "award": "",
@@ -236,7 +236,7 @@
         "Sean Bin Yang",
         "Bin Yang"
       ],
-      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025",
+      "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025 (CCF-A)",
       "thumbnail": "images/thumbs/mm-path.jpg",
       "selected": 1,
       "award": "",
@@ -259,7 +259,7 @@
         "Lunting Fan",
         "Christian S. Jensen"
       ],
-      "venue": "International Conference on Very Large Databases, 2025",
+      "venue": "International Conference on Very Large Databases, 2025 (CCF-A)",
       "thumbnail": "images/thumbs/rcrank.jpg",
       "selected": 0,
       "award": "",

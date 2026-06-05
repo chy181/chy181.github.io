@@ -1,0 +1,6 @@
+- 🚩 2026 年 5 月，我们的论文 **CCD** 被 **SIGKDD 2026** 录用。
+- 🚩 2026 年 5 月，我获得 **ICML 2026 Gold Reviewer Award**。
+- 🚩 2026 年 5 月，我们的综述论文 **A Comprehensive Survey of Deep Learning for Multivariate Time Series Forecasting: A Channel Strategy Perspective** 被 **IJCAI 2026** 录用。
+- 🚩 2026 年 5 月，我们的论文 **KITE** 和 **SEER** 被 **ICML 2026** 录用。
+- 🚩 2026 年 1 月，我们的论文 **CoRA** 和 **ASTGI** 被 **ICLR 2026** 录用。
+- 🚩 2025 年 9 月，我们的论文 **SRSNet** 和 **DBLoss** 被 **NeurIPS 2025** 录用，其中一篇为 **Spotlight**，一篇为 **Poster**。
