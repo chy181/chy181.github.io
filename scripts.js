@@ -73,7 +73,7 @@ const i18nText = {
     newsHeading: '动态',
     publicationsHeading: '论文与预印本',
     servicesHeading: '学术服务',
-    footerUpdated: '最后更新：2026 年 6 月。',
+    footerUpdated: '最近更新：2026 年 6 月。',
     profileName: '成涵吟',
     profileRole: '博士生 • 华东师范大学',
     scholarLabel: '谷歌学术',
@@ -376,9 +376,7 @@ function initializeVerticalNav() {
       cancelAnimationFrame(scrollUnlockFrame);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
-      if (window.matchMedia('(min-width: 769px)').matches) {
-        showToast(`${i18nText[getCurrentLanguage()].viewing} ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
-      }
+      showToast(`${i18nText[getCurrentLanguage()].viewing} ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
       history.replaceState(null, '', link.getAttribute('href'));
       waitForScrollToSettle(target);
     });

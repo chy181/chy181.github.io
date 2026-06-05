@@ -562,6 +562,31 @@ footer {
     background: rgba(17, 24, 39, 0.94);
   }
 
+  body::after {
+    content: "";
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 19;
+    height: 0.65rem;
+    background: var(--bg-color);
+    pointer-events: none;
+  }
+
+  .copy-toast {
+    right: auto;
+    bottom: 5.35rem;
+    left: 50%;
+    max-width: calc(100vw - 2rem);
+    text-align: center;
+    transform: translate(-50%, 0.35rem);
+  }
+
+  .copy-toast.is-visible {
+    transform: translate(-50%, 0);
+  }
+
   .vertical-nav ul {
     display: flex;
     gap: 0.15rem;
