@@ -38,7 +38,7 @@ const i18nText = {
     publicationsHeading: 'Publications & Preprints',
     servicesHeading: 'Academic Services',
     footerUpdated: 'Last updated: June 2026.',
-    profileName: 'HanYin Cheng',
+    profileName: 'Hanyin Cheng',
     profileRole: 'PhD Student • East China Normal University',
     scholarLabel: 'Google Scholar',
     dblpLabel: 'DBLP',
