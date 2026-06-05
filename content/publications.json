@@ -61,6 +61,11 @@
       "thumbnail": "images/thumbs/seer.jpg",
       "selected": 0,
       "award": "",
+      "icon": {
+        "src": "images/logo/seer.png",
+        "width": "1.65rem",
+        "height": "1.65rem"
+      },
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC"
       },
