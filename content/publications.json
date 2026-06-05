@@ -57,7 +57,7 @@
         "Chenjuan Guo"
       ],
       "venue": "International Conference on Learning Representations, 2026 (CCF-A)",
-      "thumbnail": "images/thumbs/cora.jpg",
+      "thumbnail": "images/thumbs/cora.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -170,7 +170,7 @@
         "Bin Yang"
       ],
       "venue": "Advances in Neural Information Processing Systems 38, 2026 (CCF-A)",
-      "thumbnail": "images/thumbs/srs.jpg",
+      "thumbnail": "images/thumbs/srsnet.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -191,7 +191,7 @@
         "Bin Yang"
       ],
       "venue": "Advances in Neural Information Processing Systems 38, 2026 (CCF-A)",
-      "thumbnail": "images/thumbs/dbloss.jpg",
+      "thumbnail": "images/thumbs/dbloss.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -237,7 +237,7 @@
         "Bin Yang"
       ],
       "venue": "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, 2025 (CCF-A)",
-      "thumbnail": "images/thumbs/mm-path.jpg",
+      "thumbnail": "images/thumbs/mm-path.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -260,7 +260,7 @@
         "Christian S. Jensen"
       ],
       "venue": "International Conference on Very Large Databases, 2025 (CCF-A)",
-      "thumbnail": "images/thumbs/rcrank.jpg",
+      "thumbnail": "images/thumbs/rcrank.png",
       "selected": 0,
       "award": "",
       "links": {

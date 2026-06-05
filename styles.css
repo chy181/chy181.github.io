@@ -359,9 +359,7 @@ p {
 .pub-thumbnail img {
   display: block;
   width: 100%;
-  aspect-ratio: 1.6 / 1;
-  object-fit: cover;
-  object-position: left center;
+  height: auto;
   background: #fff;
   transition: transform var(--transition-time) ease;
 }
@@ -605,7 +603,4 @@ footer {
     gap: 1rem;
   }
 
-  .pub-thumbnail img {
-    aspect-ratio: 1.7 / 1;
-  }
 }
