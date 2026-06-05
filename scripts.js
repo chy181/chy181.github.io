@@ -538,11 +538,13 @@ function createPublicationElement(publication) {
   title.appendChild(titleText);
   content.appendChild(title);
   
-  // Add authors with highlight
-  const authors = document.createElement('div');
+  // Add authors and venue in one metadata line
+  const meta = document.createElement('div');
+  meta.className = 'pub-meta';
+
+  const authors = document.createElement('span');
   authors.className = 'pub-authors';
-  
-  // Format authors with highlighting
+
   let authorsHTML = '';
   publication.authors.forEach((author, index) => {
     if (author.includes('Hanyin Cheng') || author.includes('HanYin Cheng') || author.includes('H Cheng')) {
@@ -557,26 +559,34 @@ function createPublicationElement(publication) {
   });
   
   authors.innerHTML = authorsHTML;
-  content.appendChild(authors);
-  
-  // Add venue with award if present
-  const venueContainer = document.createElement('div');
-  venueContainer.className = 'pub-venue-container';
-  
-  const venue = document.createElement('div');
+  meta.appendChild(authors);
+
+  const separator = document.createElement('span');
+  separator.className = 'pub-meta-separator';
+  separator.textContent = '·';
+  meta.appendChild(separator);
+
+  const venue = document.createElement('span');
   venue.className = 'pub-venue';
-  venue.textContent = publication.venue;
-  venueContainer.appendChild(venue);
-  
+  const venueMatch = publication.venue.match(/\s*\((CCF-[AB])\)$/);
+  venue.textContent = venueMatch ? publication.venue.replace(/\s*\(CCF-[AB]\)$/, '') : publication.venue;
+  meta.appendChild(venue);
+
+  if (venueMatch) {
+    const ccfBadge = document.createElement('span');
+    ccfBadge.className = `ccf-badge ${venueMatch[1] === 'CCF-A' ? 'ccf-a' : 'ccf-b'}`;
+    ccfBadge.textContent = venueMatch[1];
+    meta.appendChild(ccfBadge);
+  }
+  content.appendChild(meta);
+
   // Add award if it exists
   if (publication.award && publication.award.length > 0) {
     const award = document.createElement('div');
     award.className = 'pub-award';
     award.textContent = publication.award;
-    venueContainer.appendChild(award);
+    content.appendChild(award);
   }
-  
-  content.appendChild(venueContainer);
   
   // Add links if they exist
   if (publication.links) {

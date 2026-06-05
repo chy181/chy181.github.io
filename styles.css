@@ -414,22 +414,63 @@ p {
   vertical-align: text-bottom;
 }
 
-.pub-authors,
-.pub-venue {
+.pub-meta {
+  display: block;
+  margin-bottom: 0.55rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
-.pub-authors {
-  margin-bottom: 0.35rem;
+.pub-meta-separator {
+  margin: 0 0.45rem;
+  color: rgba(74, 85, 104, 0.62);
+  font-weight: 700;
 }
 
-.pub-venue-container {
-  margin-bottom: 0.55rem;
+[data-theme="dark"] .pub-meta-separator {
+  color: rgba(203, 213, 225, 0.62);
 }
 
 .pub-venue {
   font-style: italic;
+}
+
+.ccf-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.12rem 0.38rem;
+  border-radius: 4px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: 0.08rem;
+}
+
+.ccf-badge.ccf-a {
+  color: #8a3a00;
+  background: #fff1df;
+  border: 1px solid #f6b15e;
+}
+
+.ccf-badge.ccf-b {
+  color: #17633a;
+  background: #e6f6ed;
+  border: 1px solid #83d4a4;
+}
+
+[data-theme="dark"] .ccf-badge.ccf-a {
+  color: #ffd8a8;
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+[data-theme="dark"] .ccf-badge.ccf-b {
+  color: #b6f0ca;
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.4);
 }
 
 .pub-award {
