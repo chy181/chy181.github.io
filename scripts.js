@@ -225,8 +225,14 @@ function showToast(message, placement = 'right') {
   }
 
   toast.textContent = message;
+  toast.classList.remove('is-visible');
+  toast.classList.add('is-preparing');
   positionToast(toast, placement);
-  toast.classList.add('is-visible');
+  toast.offsetHeight;
+  toast.classList.remove('is-preparing');
+  requestAnimationFrame(() => {
+    toast.classList.add('is-visible');
+  });
   clearTimeout(showToast.hideTimer);
   showToast.hideTimer = setTimeout(() => {
     toast.classList.remove('is-visible');
