@@ -187,6 +187,16 @@ body[data-theme="dark"] {
   transform: translateY(0);
 }
 
+.copy-toast.is-positioned {
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, 0.35rem);
+}
+
+.copy-toast.is-positioned.is-visible {
+  transform: translate(-50%, 0);
+}
+
 header {
   display: flex;
   align-items: center;

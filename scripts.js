@@ -113,7 +113,7 @@ function initializePreferenceControls() {
     localStorage.setItem('languageMode', nextLanguage);
     applyLanguage(nextLanguage);
     loadMarkdownContent();
-    showToast(nextLanguage === 'zh' ? i18nText.zh.switchedToChinese : i18nText.en.switchedToEnglish);
+    showToast(nextLanguage === 'zh' ? i18nText.zh.switchedToChinese : i18nText.en.switchedToEnglish, 'left');
   });
 
   themeToggle?.addEventListener('click', () => {
@@ -121,7 +121,7 @@ function initializePreferenceControls() {
     const nextTheme = themeModes[(themeModes.indexOf(currentTheme) + 1) % themeModes.length];
     localStorage.setItem(themeStorageKey, nextTheme);
     applyTheme(nextTheme);
-    showToast(i18nText[getCurrentLanguage()].themeToast[nextTheme]);
+    showToast(i18nText[getCurrentLanguage()].themeToast[nextTheme], 'left');
   });
 
   systemTheme.addEventListener('change', () => {
@@ -178,20 +178,20 @@ function applyTheme(themeMode) {
   document.documentElement.dataset.theme = resolvedTheme;
 }
 
-function copyEmailToClipboard(email) {
+function copyEmailToClipboard(email, toastPlacement = 'right') {
   if (copyTextWithSelection(email)) {
-    showToast(i18nText[getCurrentLanguage()].emailCopied);
+    showToast(i18nText[getCurrentLanguage()].emailCopied, toastPlacement);
     return;
   }
 
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(email)
-      .then(() => showToast(i18nText[getCurrentLanguage()].emailCopied))
-      .catch(() => showToast(i18nText[getCurrentLanguage()].copyFailed));
+      .then(() => showToast(i18nText[getCurrentLanguage()].emailCopied, toastPlacement))
+      .catch(() => showToast(i18nText[getCurrentLanguage()].copyFailed, toastPlacement));
     return;
   }
 
-  showToast(i18nText[getCurrentLanguage()].copyFailed);
+  showToast(i18nText[getCurrentLanguage()].copyFailed, toastPlacement);
 }
 
 function copyTextWithSelection(text) {
@@ -214,7 +214,7 @@ function copyTextWithSelection(text) {
   }
 }
 
-function showToast(message) {
+function showToast(message, placement = 'right') {
   let toast = document.querySelector('.copy-toast');
   if (!toast) {
     toast = document.createElement('div');
@@ -225,11 +225,34 @@ function showToast(message) {
   }
 
   toast.textContent = message;
+  positionToast(toast, placement);
   toast.classList.add('is-visible');
   clearTimeout(showToast.hideTimer);
   showToast.hideTimer = setTimeout(() => {
     toast.classList.remove('is-visible');
   }, 1500);
+}
+
+function positionToast(toast, placement) {
+  toast.classList.remove('is-positioned');
+  toast.style.top = '';
+  toast.style.right = '';
+  toast.style.bottom = '';
+  toast.style.left = '';
+
+  if (isMobileNav()) {
+    return;
+  }
+
+  const nav = document.querySelector(placement === 'left' ? '.vertical-nav' : '.external-nav');
+  if (!nav || getComputedStyle(nav).display === 'none') {
+    return;
+  }
+
+  const rect = nav.getBoundingClientRect();
+  toast.classList.add('is-positioned');
+  toast.style.top = `${rect.bottom + 12}px`;
+  toast.style.left = `${rect.left + rect.width / 2}px`;
 }
 
 function loadMarkdownContent() {
@@ -376,7 +399,7 @@ function initializeVerticalNav() {
       cancelAnimationFrame(scrollUnlockFrame);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
-      showToast(`${i18nText[getCurrentLanguage()].viewing} ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
+      showToast(`${i18nText[getCurrentLanguage()].viewing} ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`, 'left');
       history.replaceState(null, '', link.getAttribute('href'));
       waitForScrollToSettle(target);
     });
