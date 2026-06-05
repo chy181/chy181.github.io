@@ -153,7 +153,7 @@ function initializeVerticalNav() {
       clearTimeout(unlockTimer);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
-      history.replaceState(null, '', `#${target.id}`);
+      history.replaceState(null, '', link.getAttribute('href'));
 
       unlockTimer = setTimeout(() => {
         lockedSectionId = null;
@@ -171,6 +171,12 @@ function initializeVerticalNav() {
       } else {
         return;
       }
+    }
+
+    const isNearPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 16;
+    if (isNearPageBottom) {
+      setActive(sections[sections.length - 1].id);
+      return;
     }
 
     const anchorLine = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
