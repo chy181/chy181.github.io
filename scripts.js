@@ -18,6 +18,60 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+function copyEmailToClipboard(email) {
+  if (copyTextWithSelection(email)) {
+    showCopyToast('Email copied');
+    return;
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email)
+      .then(() => showCopyToast('Email copied'))
+      .catch(() => showCopyToast('Copy failed'));
+    return;
+  }
+
+  showCopyToast('Copy failed');
+}
+
+function copyTextWithSelection(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px';
+  textarea.style.left = '-9999px';
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+
+  try {
+    return document.execCommand('copy');
+  } catch (error) {
+    return false;
+  } finally {
+    document.body.removeChild(textarea);
+  }
+}
+
+function showCopyToast(message) {
+  let toast = document.querySelector('.copy-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add('is-visible');
+  clearTimeout(showCopyToast.hideTimer);
+  showCopyToast.hideTimer = setTimeout(() => {
+    toast.classList.remove('is-visible');
+  }, 1500);
+}
+
 function loadMarkdownContent() {
   const targets = Array.from(document.querySelectorAll('[data-markdown]'));
 
