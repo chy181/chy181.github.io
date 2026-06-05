@@ -45,6 +45,50 @@
         "width": "1.65rem",
         "height": "1.65rem"
       }
+    },{
+      "title": "CoRA: Boosting Time Series Foundation Models for Multivariate Forecasting through Correlation-aware Adapter",
+      "authors": [
+        "Hanyin Cheng",
+        "Xingjian Wu",
+        "Yang Shu",
+        "Zhongwen Rao",
+        "Lujia Pan",
+        "Bin Yang",
+        "Chenjuan Guo"
+      ],
+      "venue": "International Conference on Learning Representations, 2026",
+      "thumbnail": "images/thumbs/cora.jpg",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:3fE2CSJIrl8C",
+        "pdf": "https://arxiv.org/pdf/2603.21828"
+      },
+      "badge": "ICLR 2026"
+    },{
+      "title": "STAR: Boosting Time Series Foundation Models for Anomaly Detection through State-aware Adapter",
+      "authors": [
+        "Hanyin Cheng",
+        "Ruitong Zhang",
+        "Yuning Lu",
+        "Peng Chen",
+        "Meng Wang",
+        "Yang Shu",
+        "Bin Yang",
+        "Chenjuan Guo"
+      ],
+      "venue": "arXiv preprint arXiv:2510.16014, 2025",
+      "thumbnail": "images/thumbs/star.jpg",
+      "selected": 0,
+      "award": "",
+       "icon": {
+        "src": "images/logo/star.png",
+        "width": "1.35rem",
+        "height": "1.35rem"
+      },
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:_FxGoFyzp5QC"
+      }
     },
     {
       "title": "SEER: Transformer-based Robust Time Series Forecasting via Automated Patch Enhancement and Replacement",
@@ -63,8 +107,8 @@
       "award": "",
       "icon": {
         "src": "images/logo/seer.png",
-        "width": "1.65rem",
-        "height": "1.65rem"
+        "width": "1.35rem",
+        "height": "1.35rem"
       },
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC"
@@ -92,27 +136,7 @@
       },
       "badge": "IJCAI 2026"
     },
-    {
-      "title": "CoRA: Boosting Time Series Foundation Models for Multivariate Forecasting through Correlation-aware Adapter",
-      "authors": [
-        "Hanyin Cheng",
-        "Xingjian Wu",
-        "Yang Shu",
-        "Zhongwen Rao",
-        "Lujia Pan",
-        "Bin Yang",
-        "Chenjuan Guo"
-      ],
-      "venue": "International Conference on Learning Representations, 2026",
-      "thumbnail": "images/thumbs/cora.jpg",
-      "selected": 1,
-      "award": "",
-      "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:3fE2CSJIrl8C",
-        "pdf": "https://arxiv.org/pdf/2603.21828"
-      },
-      "badge": "ICLR 2026"
-    },
+
     {
       "title": "ASTGI: Adaptive spatio-temporal graph interactions for irregular multivariate time series forecasting",
       "authors": [
@@ -243,31 +267,7 @@
       },
       "badge": "PVLDB 2026"
     },
-    {
-      "title": "STAR: Boosting Time Series Foundation Models for Anomaly Detection through State-aware Adapter",
-      "authors": [
-        "Hanyin Cheng",
-        "Ruitong Zhang",
-        "Yuning Lu",
-        "Peng Chen",
-        "Meng Wang",
-        "Yang Shu",
-        "Bin Yang",
-        "Chenjuan Guo"
-      ],
-      "venue": "arXiv preprint arXiv:2510.16014, 2025",
-      "thumbnail": "images/thumbs/star.jpg",
-      "selected": 0,
-      "award": "",
-       "icon": {
-        "src": "images/logo/star.png",
-        "width": "1.35rem",
-        "height": "1.35rem"
-      },
-      "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:_FxGoFyzp5QC"
-      }
-    },
+
     {
       "title": "Unlocking the power of mixture-of-experts for task-aware time series analytics",
       "authors": [
