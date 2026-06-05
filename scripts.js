@@ -395,6 +395,7 @@ function initializeVerticalNav() {
   const waitForScrollToSettle = target => {
     let lastScrollY = window.scrollY;
     let stableFrames = 0;
+    const startedAt = performance.now();
 
     const check = () => {
       const currentScrollY = window.scrollY;
@@ -402,7 +403,7 @@ function initializeVerticalNav() {
       stableFrames = isStable ? stableFrames + 1 : 0;
       lastScrollY = currentScrollY;
 
-      if (isTargetReached(target) && stableFrames >= 2) {
+      if ((isTargetReached(target) && stableFrames >= 2) || performance.now() - startedAt > 1200) {
         lockedSectionId = null;
         updateActiveFromScroll();
         return;
@@ -426,11 +427,13 @@ function initializeVerticalNav() {
       return;
     }
 
-    const anchorLine = window.scrollY + Math.min(window.innerHeight * 0.35, 260);
+    const anchorLine = isMobileNav()
+      ? Math.min(window.innerHeight * 0.45, window.innerHeight - 130)
+      : Math.min(window.innerHeight * 0.35, 260);
     let current = sections[0];
 
     sections.forEach(section => {
-      if (section.offsetTop <= anchorLine) {
+      if (section.getBoundingClientRect().top <= anchorLine) {
         current = section;
       }
     });
