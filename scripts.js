@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function copyEmailToClipboard(email) {
   if (copyTextWithSelection(email)) {
-    showCopyToast('Email copied');
+    showToast('Email copied');
     return;
   }
 
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(email)
-      .then(() => showCopyToast('Email copied'))
-      .catch(() => showCopyToast('Copy failed'));
+      .then(() => showToast('Email copied'))
+      .catch(() => showToast('Copy failed'));
     return;
   }
 
-  showCopyToast('Copy failed');
+  showToast('Copy failed');
 }
 
 function copyTextWithSelection(text) {
@@ -54,7 +54,7 @@ function copyTextWithSelection(text) {
   }
 }
 
-function showCopyToast(message) {
+function showToast(message) {
   let toast = document.querySelector('.copy-toast');
   if (!toast) {
     toast = document.createElement('div');
@@ -66,8 +66,8 @@ function showCopyToast(message) {
 
   toast.textContent = message;
   toast.classList.add('is-visible');
-  clearTimeout(showCopyToast.hideTimer);
-  showCopyToast.hideTimer = setTimeout(() => {
+  clearTimeout(showToast.hideTimer);
+  showToast.hideTimer = setTimeout(() => {
     toast.classList.remove('is-visible');
   }, 1500);
 }
@@ -207,6 +207,9 @@ function initializeVerticalNav() {
       cancelAnimationFrame(scrollUnlockFrame);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        showToast(`Viewing ${link.querySelector('.nav-label')?.textContent || link.dataset.section}`);
+      }
       history.replaceState(null, '', link.getAttribute('href'));
       waitForScrollToSettle(target);
     });
