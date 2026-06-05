@@ -15,9 +15,8 @@
       "selected": 1,
       "award": "",
       "links": {
-        "scholar": ""
       },
-           "icon": {
+      "icon": {
         "src": "images/logo/ccd.png",
         "width": "1.55rem",
         "height": "1.55rem"
@@ -45,7 +44,8 @@
         "width": "1.65rem",
         "height": "1.65rem"
       }
-    },{
+    },
+    {
       "title": "CoRA: Boosting Time Series Foundation Models for Multivariate Forecasting through Correlation-aware Adapter",
       "authors": [
         "Hanyin Cheng",
@@ -62,7 +62,8 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:3fE2CSJIrl8C",
-        "pdf": "https://arxiv.org/pdf/2603.21828"
+        "pdf": "https://arxiv.org/pdf/2603.21828",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2603.21828"
       },
       "badge": "ICLR 2026"
     },
@@ -78,15 +79,18 @@
         "Christian S. Jensen",
         "Bin Yang"
       ],
-      "venue": "International Joint Conference on Artificial Intelligence, 2026 (CCF-B)",
+      "venue": "International Joint Conference on Artificial Intelligence, 2026 (CORE A*)",
       "thumbnail": "images/thumbs/survey-channel.png",
       "selected": 0,
       "award": "",
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C"
+        "pdf": "https://arxiv.org/pdf/2502.10721",
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2502.10721"
       },
       "badge": "IJCAI 2026"
-    },{
+    },
+    {
       "title": "STAR: Boosting Time Series Foundation Models for Anomaly Detection through State-aware Adapter",
       "authors": [
         "Hanyin Cheng",
@@ -98,18 +102,19 @@
         "Bin Yang",
         "Chenjuan Guo"
       ],
-
       "venue": "arXiv preprint arXiv:2510.16014, 2025",
       "thumbnail": "images/thumbs/star.jpg",
       "selected": 0,
       "award": "",
-       "icon": {
+      "icon": {
         "src": "images/logo/star.png",
         "width": "1.35rem",
         "height": "1.35rem"
       },
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:_FxGoFyzp5QC"
+        "pdf": "https://arxiv.org/pdf/2510.16014",
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:_FxGoFyzp5QC",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2510.16014"
       }
     },
     {
@@ -133,11 +138,12 @@
         "height": "1.35rem"
       },
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC",
+        "pdf": "https://arxiv.org/pdf/2602.00589",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2602.00589"
       },
       "badge": "ICML 2026"
     },
-
     {
       "title": "ASTGI: Adaptive spatio-temporal graph interactions for irregular multivariate time series forecasting",
       "authors": [
@@ -154,7 +160,9 @@
       "selected": 0,
       "award": "",
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:W7OEmFMy1HYC"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:W7OEmFMy1HYC",
+        "pdf": "https://arxiv.org/pdf/2509.23313",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2509.23313"
       },
       "badge": "ICLR 2026"
     },
@@ -175,7 +183,8 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:WF5omc3nYNoC",
-        "pdf": "https://arxiv.org/pdf/2510.14510"
+        "pdf": "https://arxiv.org/pdf/2510.14510",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2510.14510"
       },
       "badge": "NeurIPS 2025 Spotlight"
     },
@@ -196,7 +205,8 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:5nxA0vEk-isC",
-        "pdf": "https://arxiv.org/pdf/2510.23672"
+        "pdf": "https://arxiv.org/pdf/2510.23672",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2510.23672"
       },
       "badge": "NeurIPS 2025"
     },
@@ -221,7 +231,8 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:IjCSPb-OGe4C",
-        "pdf": "https://arxiv.org/pdf/2410.11802"
+        "pdf": "https://arxiv.org/pdf/2410.11802",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2410.11802"
       },
       "badge": "KDD 2025"
     },
@@ -242,7 +253,8 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:u5HHmVD_uO8C",
-        "pdf": "https://arxiv.org/pdf/2411.18428"
+        "pdf": "https://arxiv.org/pdf/2411.18428",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2411.18428"
       },
       "badge": "KDD 2025"
     },
@@ -264,11 +276,12 @@
       "selected": 0,
       "award": "",
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:0EnyYjriUFMC"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:0EnyYjriUFMC",
+        "pdf": "https://arxiv.org/pdf/2503.04252",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2503.04252"
       },
       "badge": "PVLDB 2026"
     },
-
     {
       "title": "Unlocking the power of mixture-of-experts for task-aware time series analytics",
       "authors": [
@@ -285,7 +298,9 @@
       "selected": 0,
       "award": "",
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:YsMSGLbcyi4C"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:YsMSGLbcyi4C",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2509.22279",
+        "pdf": "https://arxiv.org/pdf/2509.22279"
       },
       "icon": {
         "src": "images/logo/patchmoe.png",
@@ -314,7 +329,9 @@
         "height": "1.55rem"
       },
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:roLk4NBRz8UC"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:roLk4NBRz8UC",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2512.14253",
+        "pdf": "https://arxiv.org/pdf/2512.14253"
       }
     },
     {
@@ -336,7 +353,9 @@
       "selected": 0,
       "award": "",
       "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:eQOLeE2rZwMC"
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:eQOLeE2rZwMC",
+        "alphaxiv": "https://www.alphaxiv.org/abs/2509.23668",
+        "pdf": "https://arxiv.org/pdf/2509.23668"
       }
     }
   ]

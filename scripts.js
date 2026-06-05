@@ -333,7 +333,7 @@ function renderInlineMarkdown(text) {
 
 // Load publications from JSON file
 function loadPublications() {
-  return fetch('content/publications.json?v=20260604c')
+  return fetch('content/publications.json?v=20260605c')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -568,13 +568,13 @@ function createPublicationElement(publication) {
 
   const venue = document.createElement('span');
   venue.className = 'pub-venue';
-  const venueMatch = publication.venue.match(/\s*\((CCF-[AB])\)$/);
-  venue.textContent = venueMatch ? publication.venue.replace(/\s*\(CCF-[AB]\)$/, '') : publication.venue;
+  const venueMatch = publication.venue.match(/\s*\((CCF-[AB]|CORE A\*)\)$/);
+  venue.textContent = venueMatch ? publication.venue.replace(/\s*\((CCF-[AB]|CORE A\*)\)$/, '') : publication.venue;
   meta.appendChild(venue);
 
   if (venueMatch) {
     const ccfBadge = document.createElement('span');
-    ccfBadge.className = `ccf-badge ${venueMatch[1] === 'CCF-A' ? 'ccf-a' : 'ccf-b'}`;
+    ccfBadge.className = `ccf-badge ${venueMatch[1] === 'CCF-B' ? 'ccf-b' : 'ccf-a'}`;
     ccfBadge.textContent = venueMatch[1];
     meta.appendChild(ccfBadge);
   }
@@ -599,6 +599,13 @@ function createPublicationElement(publication) {
       pdfLink.textContent = '[PDF]';
       links.appendChild(pdfLink);
     }
+
+    if (publication.links.alphaxiv) {
+      const alphaxivLink = document.createElement('a');
+      alphaxivLink.href = publication.links.alphaxiv;
+      alphaxivLink.textContent = '[Chat on it]';
+      links.appendChild(alphaxivLink);
+    }
     
     if (publication.links.code) {
       const codeLink = document.createElement('a');
@@ -620,6 +627,16 @@ function createPublicationElement(publication) {
       scholarLink.textContent = '[Scholar]';
       links.appendChild(scholarLink);
     }
+
+    const bibtexButton = document.createElement('button');
+    bibtexButton.type = 'button';
+    bibtexButton.className = 'bibtex-button';
+    bibtexButton.textContent = '[BibTeX]';
+    bibtexButton.addEventListener('click', () => {
+      const copied = copyTextWithSelection(generateBibTeX(publication));
+      showBibTeXButtonState(bibtexButton, copied ? '[BibTeX Copied]' : '[Copy Failed]');
+    });
+    links.appendChild(bibtexButton);
     
     content.appendChild(links);
   }
@@ -629,6 +646,40 @@ function createPublicationElement(publication) {
   pubItem.appendChild(content);
   
   return pubItem;
+}
+
+function generateBibTeX(publication) {
+  const yearMatch = publication.venue.match(/\b(20\d{2})\b/);
+  const year = yearMatch ? yearMatch[1] : '2026';
+  const firstAuthor = publication.authors[0]
+    .replace(/\*/g, '')
+    .trim()
+    .split(/\s+/)
+    .slice(-1)[0]
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+  const titleWord = publication.title
+    .split(/[\s:]+/)
+    .find(word => /^[A-Za-z0-9]+$/.test(word)) || 'paper';
+  const key = `${firstAuthor}${year}${titleWord.toLowerCase()}`;
+  const venue = publication.venue.replace(/\s*\((CCF-[AB]|CORE A\*)\)$/, '');
+
+  return `@inproceedings{${key},
+  title={${publication.title}},
+  author={${publication.authors.map(author => author.replace(/\*/g, '').trim()).join(' and ')}},
+  booktitle={${venue}},
+  year={${year}}
+}`;
+}
+
+function showBibTeXButtonState(button, message) {
+  button.textContent = message;
+  button.classList.add('is-copied');
+  clearTimeout(button.copyNoticeTimer);
+  button.copyNoticeTimer = setTimeout(() => {
+    button.textContent = '[BibTeX]';
+    button.classList.remove('is-copied');
+  }, 1500);
 }
 
 // Modal functionality for viewing original images

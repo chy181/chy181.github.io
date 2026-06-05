@@ -487,15 +487,21 @@ p {
   font-size: 0.85rem;
 }
 
-.pub-links a {
+.pub-links a,
+.pub-links button {
   padding: 0.2rem 0.5rem;
+  border: 0;
   border-radius: 999px;
   background: #edf4ff;
   color: var(--accent-color);
+  font: inherit;
   font-weight: 700;
+  cursor: pointer;
 }
 
-.pub-links a:hover {
+.pub-links a:hover,
+.pub-links button:hover,
+.pub-links button.is-copied {
   color: #fff;
   background: var(--accent-color);
 }
