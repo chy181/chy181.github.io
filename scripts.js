@@ -26,6 +26,14 @@ const i18nText = {
     news: 'News',
     publications: 'Publications',
     services: 'Services',
+    mobileLabels: {
+      about: 'About',
+      news: 'News',
+      publications: 'Publications',
+      services: 'Services',
+      language: 'Language',
+      theme: 'Theme'
+    },
     newsHeading: 'News',
     publicationsHeading: 'Publications & Preprints',
     servicesHeading: 'Academic Services',
@@ -54,6 +62,14 @@ const i18nText = {
     news: '最新动态',
     publications: '发表论文',
     services: '学术服务',
+    mobileLabels: {
+      about: '简介',
+      news: '动态',
+      publications: '论文',
+      services: '服务',
+      language: '语言',
+      theme: '主题'
+    },
     newsHeading: '动态',
     publicationsHeading: '论文与预印本',
     servicesHeading: '学术服务',
@@ -113,6 +129,8 @@ function initializePreferenceControls() {
       applyTheme('system');
     }
   });
+
+  window.addEventListener('resize', () => applyLanguage(getCurrentLanguage()));
 }
 
 function getCurrentLanguage() {
@@ -125,8 +143,9 @@ function applyLanguage(language) {
 
   document.querySelectorAll('.vertical-nav a[data-section]').forEach(link => {
     const label = link.querySelector('.nav-label');
-    if (label && dictionary[link.dataset.section]) {
-      label.textContent = dictionary[link.dataset.section];
+    const labelText = isMobileNav() ? dictionary.mobileLabels[link.dataset.section] : dictionary[link.dataset.section];
+    if (label && labelText) {
+      label.textContent = labelText;
     }
   });
 
@@ -139,8 +158,17 @@ function applyLanguage(language) {
 
   const themeLabel = document.querySelector('[data-theme-toggle] .nav-label');
   if (themeLabel) {
-    themeLabel.textContent = dictionary.themeControlLabel;
+    themeLabel.textContent = isMobileNav() ? dictionary.mobileLabels.theme : dictionary.themeControlLabel;
   }
+
+  const languageLabel = document.querySelector('[data-language-toggle] .nav-label');
+  if (languageLabel) {
+    languageLabel.textContent = isMobileNav() ? dictionary.mobileLabels.language : 'English/中文';
+  }
+}
+
+function isMobileNav() {
+  return window.matchMedia('(max-width: 768px)').matches;
 }
 
 function applyTheme(themeMode) {
