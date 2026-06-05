@@ -37,6 +37,7 @@ const i18nText = {
     emailLabel: 'Email',
     githubLabel: 'GitHub',
     orcidLabel: 'ORCID',
+    themeControlLabel: 'light/dark/system',
     viewing: 'Viewing',
     emailCopied: 'Email copied',
     copyFailed: 'Copy failed',
@@ -64,6 +65,7 @@ const i18nText = {
     emailLabel: '邮箱',
     githubLabel: 'GitHub',
     orcidLabel: 'ORCID',
+    themeControlLabel: '浅色/深色/系统',
     viewing: '正在查看',
     emailCopied: '邮箱已复制',
     copyFailed: '复制失败',
@@ -135,6 +137,10 @@ function applyLanguage(language) {
     }
   });
 
+  const themeLabel = document.querySelector('[data-theme-toggle] .nav-label');
+  if (themeLabel) {
+    themeLabel.textContent = dictionary.themeControlLabel;
+  }
 }
 
 function applyTheme(themeMode) {
