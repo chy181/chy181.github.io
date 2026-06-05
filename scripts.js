@@ -139,7 +139,7 @@ function initializeVerticalNav() {
 
   setActive(sections[0].id);
   let lockedSectionId = null;
-  let unlockTimer = null;
+  let scrollUnlockFrame = null;
 
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
@@ -150,27 +150,50 @@ function initializeVerticalNav() {
 
       event.preventDefault();
       lockedSectionId = link.dataset.section;
-      clearTimeout(unlockTimer);
+      cancelAnimationFrame(scrollUnlockFrame);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(lockedSectionId);
       history.replaceState(null, '', link.getAttribute('href'));
-
-      unlockTimer = setTimeout(() => {
-        lockedSectionId = null;
-        updateActiveFromScroll();
-      }, 800);
+      waitForScrollToSettle(target);
     });
   });
+
+  const isTargetReached = target => {
+    if (target.id === 'top') {
+      return window.scrollY <= 2;
+    }
+
+    const targetTop = target.getBoundingClientRect().top;
+    const isAtPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    return Math.abs(targetTop) <= 8 || isAtPageBottom;
+  };
+
+  const waitForScrollToSettle = target => {
+    let lastScrollY = window.scrollY;
+    let stableFrames = 0;
+
+    const check = () => {
+      const currentScrollY = window.scrollY;
+      const isStable = Math.abs(currentScrollY - lastScrollY) < 1;
+      stableFrames = isStable ? stableFrames + 1 : 0;
+      lastScrollY = currentScrollY;
+
+      if (isTargetReached(target) && stableFrames >= 2) {
+        lockedSectionId = null;
+        updateActiveFromScroll();
+        return;
+      }
+
+      scrollUnlockFrame = requestAnimationFrame(check);
+    };
+
+    scrollUnlockFrame = requestAnimationFrame(check);
+  };
 
   const updateActiveFromScroll = () => {
     if (lockedSectionId) {
       setActive(lockedSectionId);
-      const target = document.getElementById(lockedSectionId);
-      if (target && Math.abs(target.getBoundingClientRect().top) < 8) {
-        lockedSectionId = null;
-      } else {
-        return;
-      }
+      return;
     }
 
     const isNearPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 16;
