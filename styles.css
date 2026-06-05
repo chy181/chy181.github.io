@@ -576,7 +576,7 @@ footer {
 
   .copy-toast {
     right: auto;
-    bottom: 5.35rem;
+    bottom: 6.2rem;
     left: 50%;
     max-width: calc(100vw - 2rem);
     text-align: center;
@@ -610,7 +610,7 @@ footer {
     border: 0;
     background: transparent;
     box-shadow: none;
-    font-size: 0.62rem;
+    font-size: 0.56rem;
   }
 
   .vertical-nav .side-icon {
