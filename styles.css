@@ -48,7 +48,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 10rem;
+  width: 12.8rem;
   height: 2.2rem;
   color: var(--text-secondary);
   text-decoration: none;
@@ -70,12 +70,12 @@ body {
   display: inline-flex;
   align-items: center;
   margin-left: 0.55rem;
-  padding: 0.32rem 0.65rem;
+  padding: 0.4rem 0.78rem;
   border-radius: 999px;
   color: var(--accent-color);
   background: #edf4ff;
   font-family: "Trebuchet MS", Arial, sans-serif;
-  font-size: 0.78rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -98,15 +98,15 @@ body {
 }
 
 .vertical-nav a.is-active .nav-label {
-  padding: 0.38rem 0.78rem;
+  padding: 0.46rem 0.9rem;
   background: #0f2f63;
   box-shadow: 0 6px 16px rgba(15, 47, 99, 0.22);
-  font-size: 0.86rem;
+  font-size: 1.14rem;
 }
 
 .vertical-nav a:not(.is-active):hover .nav-label {
   background: var(--accent-color);
-  font-size: 0.78rem;
+  font-size: 1.05rem;
 }
 
 header {
@@ -431,6 +431,14 @@ footer {
   color: #fff;
   font-size: 2.2rem;
   cursor: pointer;
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  body {
+    max-width: calc(100vw - 18.5rem);
+    margin-left: 16.2rem;
+    margin-right: 2rem;
+  }
 }
 
 @media (max-width: 768px) {

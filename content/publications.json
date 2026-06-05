@@ -65,6 +65,27 @@
         "pdf": "https://arxiv.org/pdf/2603.21828"
       },
       "badge": "ICLR 2026"
+    },
+    {
+      "title": "A comprehensive survey of deep learning for multivariate time series forecasting: A channel strategy perspective",
+      "authors": [
+        "Xiangfei Qiu*",
+        "Hanyin Cheng*",
+        "Xingjian Wu",
+        "Junkai Lu",
+        "Jilin Hu",
+        "Chenjuan Guo",
+        "Christian S. Jensen",
+        "Bin Yang"
+      ],
+      "venue": "International Joint Conference on Artificial Intelligence, 2026",
+      "thumbnail": "images/thumbs/survey-channel.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C"
+      },
+      "badge": "IJCAI 2026"
     },{
       "title": "STAR: Boosting Time Series Foundation Models for Anomaly Detection through State-aware Adapter",
       "authors": [
@@ -77,6 +98,7 @@
         "Bin Yang",
         "Chenjuan Guo"
       ],
+
       "venue": "arXiv preprint arXiv:2510.16014, 2025",
       "thumbnail": "images/thumbs/star.jpg",
       "selected": 0,
@@ -114,27 +136,6 @@
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC"
       },
       "badge": "ICML 2026"
-    },
-    {
-      "title": "A comprehensive survey of deep learning for multivariate time series forecasting: A channel strategy perspective",
-      "authors": [
-        "Xiangfei Qiu",
-        "Hanyin Cheng",
-        "Xingjian Wu",
-        "Junkai Lu",
-        "Jilin Hu",
-        "Chenjuan Guo",
-        "Christian S. Jensen",
-        "Bin Yang"
-      ],
-      "venue": "International Joint Conference on Artificial Intelligence, 2026",
-      "thumbnail": "images/thumbs/survey-channel.png",
-      "selected": 0,
-      "award": "",
-      "links": {
-        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C"
-      },
-      "badge": "IJCAI 2026"
     },
 
     {
@@ -285,6 +286,11 @@
       "award": "",
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:YsMSGLbcyi4C"
+      },
+      "icon": {
+        "src": "images/logo/patchmoe.png",
+        "width": "1.35rem",
+        "height": "1.35rem"
       }
     },
     {
