@@ -36,6 +36,7 @@ const i18nText = {
     },
     newsHeading: 'News',
     publicationsHeading: 'Publications & Preprints',
+    correspondingAuthorNote: '# Corresponding author.',
     servicesHeading: 'Academic Services',
     footerUpdated: 'Last updated: June 2026.',
     profileName: 'Hanyin Cheng',
@@ -72,6 +73,7 @@ const i18nText = {
     },
     newsHeading: '动态',
     publicationsHeading: '论文与预印本',
+    correspondingAuthorNote: '# 通讯作者。',
     servicesHeading: '学术服务',
     footerUpdated: '最近更新：2026 年 6 月。',
     profileName: '成涵吟',
@@ -333,7 +335,7 @@ function renderInlineMarkdown(text) {
 
 // Load publications from JSON file
 function loadPublications() {
-  return fetch('content/publications.json?v=20260605c')
+  return fetch('content/publications.json?v=20260605d')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -545,20 +547,27 @@ function createPublicationElement(publication) {
   const authors = document.createElement('span');
   authors.className = 'pub-authors';
 
-  let authorsHTML = '';
   publication.authors.forEach((author, index) => {
-    if (author.includes('Hanyin Cheng') || author.includes('HanYin Cheng') || author.includes('H Cheng')) {
-      authorsHTML += `<span class="highlight-name">${author}</span>`;
-    } else {
-      authorsHTML += author;
+    const isCorresponding = author.includes('#');
+    const cleanAuthor = author.replace(/#/g, '').trim();
+    const authorSpan = document.createElement('span');
+    if (cleanAuthor.includes('Hanyin Cheng') || cleanAuthor.includes('HanYin Cheng') || cleanAuthor.includes('H Cheng')) {
+      authorSpan.className = 'highlight-name';
     }
-    
+    authorSpan.textContent = cleanAuthor;
+    authors.appendChild(authorSpan);
+
+    if (isCorresponding) {
+      const marker = document.createElement('sup');
+      marker.className = 'corresponding-marker';
+      marker.textContent = '#';
+      authors.appendChild(marker);
+    }
+
     if (index < publication.authors.length - 1) {
-      authorsHTML += ', ';
+      authors.appendChild(document.createTextNode(', '));
     }
   });
-  
-  authors.innerHTML = authorsHTML;
   meta.appendChild(authors);
 
   const separator = document.createElement('span');

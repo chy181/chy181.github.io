@@ -421,6 +421,23 @@ p {
   font-size: 0.9rem;
 }
 
+.author-note {
+  margin: -0.35rem 0 0.4rem;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.corresponding-marker {
+  margin-left: 0.08rem;
+  color: #8a3a00;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .corresponding-marker {
+  color: #ffd8a8;
+}
+
 .pub-meta-separator {
   margin: 0 0.45rem;
   color: rgba(74, 85, 104, 0.62);
