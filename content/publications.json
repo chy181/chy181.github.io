@@ -63,7 +63,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:3fE2CSJIrl8C",
         "pdf": "https://arxiv.org/pdf/2603.21828",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2603.21828"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2603.21828",
+        "code": "https://github.com/decisionintelligence/CoRA"
       },
       "badge": "ICLR 2026"
     },
@@ -86,7 +87,8 @@
       "links": {
         "pdf": "https://arxiv.org/pdf/2502.10721",
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:d1gkVwhDpl0C",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2502.10721"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2502.10721",
+        "code": "https://github.com/decisionintelligence/CS4TS"
       },
       "badge": "IJCAI 2026"
     },
@@ -140,7 +142,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:Se3iqnhoufwC",
         "pdf": "https://arxiv.org/pdf/2602.00589",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2602.00589"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2602.00589",
+        "code": "https://github.com/decisionintelligence/SEER"
       },
       "badge": "ICML 2026"
     },
@@ -162,7 +165,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:W7OEmFMy1HYC",
         "pdf": "https://arxiv.org/pdf/2509.23313",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2509.23313"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2509.23313",
+        "code": "https://github.com/decisionintelligence/ASTGI"
       },
       "badge": "ICLR 2026"
     },
@@ -184,7 +188,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:WF5omc3nYNoC",
         "pdf": "https://arxiv.org/pdf/2510.14510",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2510.14510"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2510.14510",
+        "code": "https://github.com/decisionintelligence/SRSNet"
       },
       "badge": "NeurIPS 2025 Spotlight"
     },
@@ -206,7 +211,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:5nxA0vEk-isC",
         "pdf": "https://arxiv.org/pdf/2510.23672",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2510.23672"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2510.23672",
+        "code": "https://github.com/decisionintelligence/DBLoss"
       },
       "badge": "NeurIPS 2025"
     },
@@ -232,7 +238,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:IjCSPb-OGe4C",
         "pdf": "https://arxiv.org/pdf/2410.11802",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2410.11802"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2410.11802",
+        "code": "https://github.com/decisionintelligence/TSFM-Bench"
       },
       "badge": "KDD 2025"
     },
@@ -254,7 +261,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:u5HHmVD_uO8C",
         "pdf": "https://arxiv.org/pdf/2411.18428",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2411.18428"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2411.18428",
+        "code": "https://github.com/decisionintelligence/MM-Path"
       },
       "badge": "KDD 2025"
     },
@@ -278,7 +286,8 @@
       "links": {
         "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K146YJMAAAAJ&citation_for_view=K146YJMAAAAJ:0EnyYjriUFMC",
         "pdf": "https://arxiv.org/pdf/2503.04252",
-        "alphaxiv": "https://www.alphaxiv.org/abs/2503.04252"
+        "alphaxiv": "https://www.alphaxiv.org/abs/2503.04252",
+        "code": "https://github.com/decisionintelligence/RCRank"
       },
       "badge": "PVLDB 2026"
     },

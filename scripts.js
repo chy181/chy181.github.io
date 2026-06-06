@@ -335,7 +335,7 @@ function renderInlineMarkdown(text) {
 
 // Load publications from JSON file
 function loadPublications() {
-  return fetch('content/publications.json?v=20260605d')
+  return fetch('content/publications.json?v=20260606a')
     .then(response => {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -609,18 +609,18 @@ function createPublicationElement(publication) {
       links.appendChild(pdfLink);
     }
 
-    if (publication.links.alphaxiv) {
-      const alphaxivLink = document.createElement('a');
-      alphaxivLink.href = publication.links.alphaxiv;
-      alphaxivLink.textContent = '[Chat on it]';
-      links.appendChild(alphaxivLink);
-    }
-    
     if (publication.links.code) {
       const codeLink = document.createElement('a');
       codeLink.href = publication.links.code;
       codeLink.textContent = '[Code]';
       links.appendChild(codeLink);
+    }
+
+    if (publication.links.alphaxiv) {
+      const alphaxivLink = document.createElement('a');
+      alphaxivLink.href = publication.links.alphaxiv;
+      alphaxivLink.textContent = '[Chat on it]';
+      links.appendChild(alphaxivLink);
     }
     
     if (publication.links.project) {
