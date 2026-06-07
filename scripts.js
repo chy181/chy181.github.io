@@ -46,6 +46,7 @@ const i18nText = {
     emailLabel: 'Email',
     githubLabel: 'GitHub',
     orcidLabel: 'ORCID',
+    cvLabel: 'CV',
     themeControlLabel: 'light/dark/system',
     viewing: 'Viewing',
     emailCopied: 'Email copied',
@@ -83,6 +84,7 @@ const i18nText = {
     emailLabel: '邮箱',
     githubLabel: 'GitHub',
     orcidLabel: 'ORCID',
+    cvLabel: '简历',
     themeControlLabel: '浅色/深色/系统',
     viewing: '正在查看',
     emailCopied: '邮箱已复制',
@@ -156,6 +158,10 @@ function applyLanguage(language) {
     if (dictionary[key]) {
       element.textContent = dictionary[key];
     }
+  });
+
+  document.querySelectorAll('[data-cv-link]').forEach(link => {
+    link.href = language === 'zh' ? 'content/CV-zh_CN.pdf' : 'content/CV.pdf';
   });
 
   const themeLabel = document.querySelector('[data-theme-toggle] .nav-label');
