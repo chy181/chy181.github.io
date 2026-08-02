@@ -8,8 +8,18 @@
 <div class="service-category">
   <div class="service-title">Conference PC Member</div>
   <ul>
+    <li>AAAI Conference on Artificial Intelligence (AAAI) 2027.</li>
     <li>International Conference on Neural Information Processing Systems (NeurIPS) 2026.</li>
     <li>International Conference on Machine Learning (ICML) 2026.</li>
     <li>International Conference on Learning Representations (ICLR) 2026.</li>
+    <li>AAAI Conference on Artificial Intelligence (AAAI) 2026.</li>
+  </ul>
+</div>
+
+<div class="service-category">
+  <div class="service-title">Journal Reviewers</div>
+  <ul>
+    <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI).</li>
+    <li>IEEE Transactions on Knowledge and Data Engineering (TKDE).</li>
   </ul>
 </div>
